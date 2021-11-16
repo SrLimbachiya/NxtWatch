@@ -24,11 +24,24 @@ class App extends Component {
     const getSaved = JSON.parse(localStorage.getItem('saved'))
     const getLiked = JSON.parse(localStorage.getItem('liked'))
     const getDisliked = JSON.parse(localStorage.getItem('disliked'))
-    this.setState({
-      savedVideo: getSaved,
-      likedVideo: getLiked,
-      disLikedVideo: getDisliked,
-    })
+
+    if (getSaved === null) {
+      this.setState({savedVideo: []}, this.toLocalStorage)
+    } else {
+      this.setState({savedVideo: getSaved}, this.toLocalStorage)
+    }
+
+    if (getLiked === null) {
+      this.setState({likedVideo: []}, this.toLocalStorage)
+    } else {
+      this.setState({likedVideo: getLiked}, this.toLocalStorage)
+    }
+
+    if (getDisliked === null) {
+      this.setState({disLikedVideo: []}, this.toLocalStorage)
+    } else {
+      this.setState({disLikedVideo: getDisliked}, this.toLocalStorage)
+    }
   }
 
   changeTheme = () => {

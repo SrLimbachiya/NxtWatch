@@ -173,7 +173,17 @@ class VideoItemDetails extends Component {
           disLikedVideo,
         } = value
 
-        const isInSaved = savedVideo.find(each => each.id === videoDetail.id)
+        /* const checkData = () => {
+          try {
+            const isInSaved = savedVideo.find(
+              each => each.id === videoDetail.id,
+            )
+            console.log(isInSaved)
+            return isInSaved
+          } catch {
+            return false
+          }
+        } */
 
         const onSave = () => {
           addToSaved(videoDetail)
@@ -185,8 +195,26 @@ class VideoItemDetails extends Component {
           addToDisliked(videoDetail.id)
         }
 
+        /* const isLiked = () => {
+          try {
+            const data = likedVideo.includes(videoDetail.id)
+            return true
+          } catch {
+            return false
+          }
+        } */
+        const isInSaved = savedVideo.find(each => each.id === videoDetail.id)
         const isLiked = likedVideo.includes(videoDetail.id)
         const isDisLiked = disLikedVideo.includes(videoDetail.id)
+
+        /* const isDisLiked = () => {
+          try {
+            const data = disLikedVideo.includes(videoDetail.id)
+            if (data === null )
+          } catch {
+            return false
+          }
+        } */
 
         return (
           <VideoPlayerContainer
@@ -229,7 +257,7 @@ class VideoItemDetails extends Component {
                     color={isInSaved === undefined ? '#383838' : '#3b82f6'}
                     size="25px"
                   />
-                  <BtnLabel val={isInSaved}>Save</BtnLabel>
+                  <BtnLabel val={isInSaved !== undefined}>Save</BtnLabel>
                 </Btns>
               </LikeDislikeSave>
             </ViewLikeDislikeSave>
