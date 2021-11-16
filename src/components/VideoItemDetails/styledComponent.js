@@ -39,6 +39,7 @@ export const JustDot = styled.p`
   margin: 0 8px;
   margin-top: 5px;
   font-size: 20px;
+  color: #94a3b8;
 `
 
 export const VideoViewsAgo = styled.div`

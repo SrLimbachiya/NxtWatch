@@ -1,5 +1,5 @@
 import Popup from 'reactjs-popup'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Cookie from 'js-cookie'
 import {FaMoon} from 'react-icons/fa'
 import {BiSun} from 'react-icons/bi'
@@ -33,14 +33,16 @@ const Header = props => (
       }
       return (
         <HeaderMain theme={activeTheme}>
-          <WebsiteLogo
-            src={
-              activeTheme === 'DARK'
-                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-            }
-            alt="website-logo"
-          />
+          <Link to="/">
+            <WebsiteLogo
+              src={
+                activeTheme === 'DARK'
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+              }
+              alt="website-logo"
+            />
+          </Link>
           <HeaderUl>
             <HeaderLi onClick={onClickTheme}>
               {activeTheme === 'DARK' ? (

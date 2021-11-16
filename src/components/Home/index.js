@@ -147,6 +147,7 @@ class Home extends Component {
                     onChange={this.onSearchInput}
                     placeholder="Search"
                     value={searchInput}
+                    theme={activeTheme}
                   />
                   <VideoSearchBtn onClick={this.getVideos} theme={activeTheme}>
                     <BiSearch

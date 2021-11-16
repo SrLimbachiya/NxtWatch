@@ -85,6 +85,7 @@ export const VideoSearch = styled.input`
   border-right: none;
   padding: 10px;
   background-color: transparent;
+  color: ${props => (props.theme === 'DARK' ? '#eff2f4' : '#0f0f0f')};
 `
 
 export const VideoSearchBtn = styled.button`

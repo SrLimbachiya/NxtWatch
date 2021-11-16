@@ -5,7 +5,7 @@ export const VideoItemMain = styled.li`
   flex-shrink: 1;
   display: flex;
   @media (max-width: 1366px) {
-    width: 300px;
+    width: 100%;
     height: 200px;
   }
 `
@@ -41,6 +41,7 @@ export const JustDot = styled.p`
   margin: 0 8px;
   margin-top: 5px;
   font-size: 20px;
+  color: #94a3b8;
 `
 
 export const VideoViewsAgo = styled.div`

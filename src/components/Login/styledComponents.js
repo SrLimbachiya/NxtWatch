@@ -11,7 +11,10 @@ export const LoginForm = styled.form`
   height: 450px;
   width: 400px;
   margin: auto;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: ${props =>
+    props.theme === 'DARK'
+      ? '2px 2px 20px -2px rgba(255,255,255,0.77)'
+      : 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}
   padding: 35px 40px;
   display: flex;
   flex-direction: column;

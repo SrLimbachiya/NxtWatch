@@ -1,4 +1,4 @@
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 import {Component} from 'react'
 import MainContext from './context/MainContext'
 
@@ -11,6 +11,7 @@ import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import SavedVideos from './components/SavedVideos'
 import VideoItemDetails from './components/VideoItemDetails'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   state = {
@@ -160,6 +161,8 @@ class App extends Component {
           <ProtectedRoute path="/gaming" component={Gaming} />
           <ProtectedRoute path="/videos/:id" component={VideoItemDetails} />
           <ProtectedRoute path="/saved_videos" component={SavedVideos} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
         </Switch>
       </MainContext.Provider>
     )
