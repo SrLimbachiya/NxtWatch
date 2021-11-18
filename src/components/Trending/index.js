@@ -79,13 +79,13 @@ class Trending extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
               }
-              alt="error"
+              alt="failure view"
             />
             <ErrorHeading theme={activeTheme}>
               Oops! Something went wrong
             </ErrorHeading>
             <ErrorDesc theme={activeTheme}>
-              We are having trouble to complete your request. Please try again.
+              We are having some trouble
             </ErrorDesc>
             <RetryBtn onClick={this.getTrendings} type="button">
               Retry
@@ -121,7 +121,7 @@ class Trending extends Component {
         const {trendingList} = this.state
         return (
           <>
-            <TrendingTopBar theme={activeTheme}>
+            <TrendingTopBar data-testid="banner" theme={activeTheme}>
               <TrendingBarImg theme={activeTheme}>
                 <HiFire size="55px" color="#ff031c" />
               </TrendingBarImg>
@@ -160,7 +160,7 @@ class Trending extends Component {
           return (
             <>
               <Header />
-              <TrMain theme={activeTheme}>
+              <TrMain data-testid="trending" theme={activeTheme}>
                 <SideBar />
                 <TrInner>{this.renderEverything()}</TrInner>
               </TrMain>

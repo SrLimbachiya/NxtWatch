@@ -117,7 +117,7 @@ class Home extends Component {
               alt="no videos"
             />
             <ErrorHeading theme={activeTheme}>
-              No Search result found
+              No Search results found
             </ErrorHeading>
             <ErrorDesc theme={activeTheme}>
               Try different key words or remove search filter
@@ -149,7 +149,11 @@ class Home extends Component {
                     value={searchInput}
                     theme={activeTheme}
                   />
-                  <VideoSearchBtn onClick={this.getVideos} theme={activeTheme}>
+                  <VideoSearchBtn
+                    data-testid="searchButton"
+                    onClick={this.getVideos}
+                    theme={activeTheme}
+                  >
                     <BiSearch
                       size="20px"
                       color={activeTheme === 'DARK' ? '#ffffff' : null}
@@ -185,13 +189,13 @@ class Home extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
               }
-              alt="error"
+              alt="failure view"
             />
             <ErrorHeading theme={activeTheme}>
               Oops! Something went wrong
             </ErrorHeading>
             <ErrorDesc theme={activeTheme}>
-              We are having trouble to complete your request. Please try again.
+              We are having some trouble
             </ErrorDesc>
             <RetryBtn onClick={this.onRetry} type="button">
               Retry
@@ -224,20 +228,18 @@ class Home extends Component {
           return (
             <>
               <Header />
-              <HomeMain theme={activeTheme}>
+              <HomeMain data-testid="home" theme={activeTheme}>
                 <SideBar />
                 <HomeInnerTwo>
-                  <HomeBanner id="banner">
-                    <BannerBtn onClick={this.closeBanner}>
+                  <HomeBanner data-testid="banner" id="banner">
+                    <BannerBtn data-testid="close" onClick={this.closeBanner}>
                       <GrClose />
                     </BannerBtn>
                     <BannerImg
                       src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                      alt="banner image"
+                      alt="nxt watch logo"
                     />
-                    <BannerText>
-                      Buy Nxt Watch Premium prepaid plans with UPI
-                    </BannerText>
+                    <BannerText>Buy Nxt Watch Premium</BannerText>
                     <BannerPlanBtn>GET IT NOW</BannerPlanBtn>
                   </HomeBanner>
                   <VideoListDiv theme={activeTheme}>

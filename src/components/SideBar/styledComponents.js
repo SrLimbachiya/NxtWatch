@@ -28,16 +28,9 @@ export const SideBarLi = styled.li`
   font-weight: ${props => (props.path ? 600 : 400)};
   z-index: 1;
 `
-export const SideBarLink = styled.p`
-  font-size: 16px;
-  margin-left: 25px;
-  pointer-events: none;
-  color: ${props => (props.theme === 'DARK' ? '#e1edf7' : '#000000')};
-  letter-spacing: 0.5px;
-`
 
 export const SideBarLastLi = styled.li`
-  height: 160px;
+  height: 170px;
   width: 18%;
   margin-bottom: 10px;
   position: absolute;
@@ -50,17 +43,11 @@ export const SideContactDiv = styled.div`
   width: 185px;
   justify-content: space-between;
   padding: 0 20px;
+  margin-top: 18px;
 `
 
 export const SideBarImg = styled.img`
   height: 40px;
-`
-
-export const SideContactH = styled.h1`
-  font-size: 20px;
-  margin-bottom: 15px;
-  padding: 0 20px;
-  color: ${props => (props.theme === 'DARK' ? '#e1edf7 ' : '#000000')};
 `
 
 export const SideContactP = styled.p`

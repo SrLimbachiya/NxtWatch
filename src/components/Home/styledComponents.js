@@ -8,7 +8,10 @@ export const HomeMain = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: ${props =>
-    props.theme === 'DARK' ? '#0f0f0f' : '#eff2f4'};
+    props.theme === 'DARK' ? '#0f0f0f' : '#f9f9f9 '};
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
 `
 
 export const HomeInnerTwo = styled.div`
@@ -17,6 +20,7 @@ export const HomeInnerTwo = styled.div`
   overflow: auto;
   @media (max-width: 768px) {
     width: 100%;
+    height: 100vh;
   }
 `
 
@@ -49,6 +53,9 @@ export const BannerText = styled.p`
   padding: 0 10px;
   width: 450px;
   margin-top: 15px;
+  @media (max-width: 768px) {
+    width: 60%;
+  }
 `
 
 export const BannerPlanBtn = styled.button`
@@ -67,15 +74,25 @@ export const VideoListDiv = styled.div`
   background-color: ${props =>
     props.theme === 'DARK' ? '#0f0f0f' : '#eff2f4'};
   border-top-left-radius: 12px;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+    padding-top: 30px;
+    // background-color: red;
+  }
 `
 
 export const VideoSearchDiv = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 40px;
   width: 450px;
   margin-bottom: 30px;
   border: solid px #94a3b8;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 export const VideoSearch = styled.input`
   height: 40px;
@@ -86,6 +103,9 @@ export const VideoSearch = styled.input`
   padding: 10px;
   background-color: transparent;
   color: ${props => (props.theme === 'DARK' ? '#eff2f4' : '#0f0f0f')};
+  @media (max-width: 768px) {
+    width: 75%;
+  }
 `
 
 export const VideoSearchBtn = styled.button`
@@ -105,6 +125,10 @@ export const VideoListUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const LoaderContainer = styled.div`

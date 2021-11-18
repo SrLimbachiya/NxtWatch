@@ -20,7 +20,7 @@ const GameVideoItem = props => {
         return (
           <Link style={{textDecoration: 'none'}} to={`/videos/${details.id}`}>
             <VideoItemMain>
-              <VideoThumb src={details.thumbnailUrl} alt={details.title} />
+              <VideoThumb src={details.thumbnailUrl} alt="video thumbnail" />
               <VideoDetailDiv>
                 <VideoDetailTextDiv>
                   <VideoTitle theme={activeTheme}>{details.title}</VideoTitle>

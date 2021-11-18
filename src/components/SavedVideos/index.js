@@ -50,7 +50,7 @@ class Trending extends Component {
               No saved videos found
             </ErrorHeading>
             <ErrorDesc theme={activeTheme}>
-              You can save videos while watching them
+              Save your videos by clicking a button
             </ErrorDesc>
           </ErrorContainer>
         )
@@ -83,10 +83,31 @@ class Trending extends Component {
         return (
           <>
             {savedVideo.length === 0 ? (
-              this.renderNoVideo()
+              <>
+                <SavedTopBar data-testid="banner" theme={activeTheme}>
+                  <SavedBarImg theme={activeTheme}>
+                    <HiFire size="55px" color="#ff031c" />
+                  </SavedBarImg>
+                  <SavedBarTitle theme={activeTheme}>
+                    Saved Videos
+                  </SavedBarTitle>
+                </SavedTopBar>
+                <ErrorContainer theme={activeTheme}>
+                  <ErrorImg
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
+                    alt="no saved videos"
+                  />
+                  <ErrorHeading theme={activeTheme}>
+                    No saved videos found
+                  </ErrorHeading>
+                  <ErrorDesc theme={activeTheme}>
+                    Save your videos by clicking a button
+                  </ErrorDesc>
+                </ErrorContainer>
+              </>
             ) : (
               <>
-                <SavedTopBar theme={activeTheme}>
+                <SavedTopBar data-testid="banner" theme={activeTheme}>
                   <SavedBarImg theme={activeTheme}>
                     <HiFire size="55px" color="#ff031c" />
                   </SavedBarImg>
@@ -127,7 +148,7 @@ class Trending extends Component {
           return (
             <>
               <Header />
-              <SavedMain theme={activeTheme}>
+              <SavedMain data-testid="savedVideos" theme={activeTheme}>
                 <SideBar />
                 <SavedInner>{this.renderEverything()}</SavedInner>
               </SavedMain>

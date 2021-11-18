@@ -32,6 +32,7 @@ import {
   VideoTitle,
   ChannelDes,
   ChannelSub,
+  VideoPlayerDetailsContainer,
 } from './styledComponent'
 
 const apiStatus = {
@@ -117,7 +118,7 @@ class VideoItemDetails extends Component {
       {value => {
         const {activeTheme} = value
         return (
-          <LoaderContainer className="loader-container" data-testid="loader">
+          <LoaderContainer data-testid="loader">
             <Loader
               type="ThreeDots"
               color={activeTheme === 'DARK' ? '#ffffff' : '#00000'}
@@ -142,15 +143,16 @@ class VideoItemDetails extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
               }
-              alt="error"
+              alt="failure view"
             />
             <ErrorHeading theme={activeTheme}>
               Oops! Something went wrong
             </ErrorHeading>
             <ErrorDesc theme={activeTheme}>
-              We are having trouble to complete your request. Please try again.
+              We are having some trouble to complete your request. Please try
+              again.
             </ErrorDesc>
-            <RetryBtn onClick={this.onRetry} type="button">
+            <RetryBtn onClick={this.getVideoDetails} type="button">
               Retry
             </RetryBtn>
           </ErrorContainer>
@@ -217,69 +219,73 @@ class VideoItemDetails extends Component {
         } */
 
         return (
-          <VideoPlayerContainer
-            className="loader-container"
-            data-testid="loader"
-          >
+          <VideoPlayerContainer>
             <ReactPlayer
               url={videoDetail.videoUrl}
               width="100%"
               height="100%"
               controls
             />
-            <VideoPlayerHeading theme={activeTheme}>
-              {videoDetail.title}
-            </VideoPlayerHeading>
-            <ViewLikeDislikeSave>
-              <VideoViewsAgo>
-                <VideoDetailUnderText
-                  theme={activeTheme}
-                >{`${videoDetail.viewCount} views`}</VideoDetailUnderText>
-                <JustDot theme={activeTheme}>&bull;</JustDot>
-                <VideoDetailUnderText theme={activeTheme}>
-                  {this.timeDiff(new Date(videoDetail.publishedAt))}
-                </VideoDetailUnderText>
-              </VideoViewsAgo>
-              <LikeDislikeSave>
-                <Btns onClick={onLike}>
-                  <BiLike color={isLiked ? '#3b82f6' : '#383838'} size="25px" />
-                  <BtnLabel val={isLiked}>Like</BtnLabel>
-                </Btns>
-                <Btns onClick={onDisLike}>
-                  <BiDislike
-                    color={isDisLiked ? '#3b82f6' : '#383838'}
-                    size="25px"
-                  />
-                  <BtnLabel val={isDisLiked}>Dislike</BtnLabel>
-                </Btns>
-                <Btns onClick={onSave}>
-                  <BiListPlus
-                    color={isInSaved === undefined ? '#383838' : '#3b82f6'}
-                    size="25px"
-                  />
-                  <BtnLabel val={isInSaved !== undefined}>Save</BtnLabel>
-                </Btns>
-              </LikeDislikeSave>
-            </ViewLikeDislikeSave>
-            <Hrline />
-
-            <VideoDetailDiv>
-              <Channelthumb
-                src={videoDetail.channel.profileImageUrl}
-                alt={videoDetail.channel.name}
-              />
-              <VideoDetailTextDiv>
-                <VideoTitle theme={activeTheme}>
-                  {videoDetail.channel.name}
-                </VideoTitle>
-                <ChannelSub
-                  theme={activeTheme}
-                >{`${videoDetail.channel.subCount} subscribers`}</ChannelSub>
-                <ChannelDes theme={activeTheme}>
-                  {videoDetail.description}
-                </ChannelDes>
-              </VideoDetailTextDiv>
-            </VideoDetailDiv>
+            <VideoPlayerDetailsContainer>
+              {' '}
+              <VideoPlayerHeading theme={activeTheme}>
+                {videoDetail.title}
+              </VideoPlayerHeading>
+              <ViewLikeDislikeSave>
+                <VideoViewsAgo>
+                  <VideoDetailUnderText
+                    theme={activeTheme}
+                  >{`${videoDetail.viewCount} views`}</VideoDetailUnderText>
+                  <JustDot theme={activeTheme}>&bull;</JustDot>
+                  <VideoDetailUnderText theme={activeTheme}>
+                    {this.timeDiff(new Date(videoDetail.publishedAt))}
+                  </VideoDetailUnderText>
+                </VideoViewsAgo>
+                <LikeDislikeSave>
+                  <Btns val={isLiked} onClick={onLike}>
+                    <BiLike
+                      color={isLiked ? '#2563eb ' : '#64748b'}
+                      size="25px"
+                    />
+                    <BtnLabel val={isLiked}>Like</BtnLabel>
+                  </Btns>
+                  <Btns val={isDisLiked} onClick={onDisLike}>
+                    <BiDislike
+                      color={isDisLiked ? '#2563eb ' : '#64748b'}
+                      size="25px"
+                    />
+                    <BtnLabel val={isDisLiked}>Dislike</BtnLabel>
+                  </Btns>
+                  <Btns val={isInSaved !== undefined} onClick={onSave}>
+                    <BiListPlus
+                      color={isInSaved !== undefined ? '#2563eb ' : '#64748b'}
+                      size="25px"
+                    />
+                    <BtnLabel val={isInSaved !== undefined}>
+                      {isInSaved !== undefined ? 'Saved' : 'Save'}
+                    </BtnLabel>
+                  </Btns>
+                </LikeDislikeSave>
+              </ViewLikeDislikeSave>
+              <Hrline />
+              <VideoDetailDiv>
+                <Channelthumb
+                  src={videoDetail.channel.profileImageUrl}
+                  alt="channel logo"
+                />
+                <VideoDetailTextDiv>
+                  <VideoTitle theme={activeTheme}>
+                    {videoDetail.channel.name}
+                  </VideoTitle>
+                  <ChannelSub
+                    theme={activeTheme}
+                  >{`${videoDetail.channel.subCount} subscribers`}</ChannelSub>
+                  <ChannelDes theme={activeTheme}>
+                    {videoDetail.description}
+                  </ChannelDes>
+                </VideoDetailTextDiv>
+              </VideoDetailDiv>
+            </VideoPlayerDetailsContainer>
           </VideoPlayerContainer>
         )
       }}
@@ -308,7 +314,7 @@ class VideoItemDetails extends Component {
           return (
             <>
               <Header />
-              <VDMain>
+              <VDMain data-testid="videoItemDetails" theme={activeTheme}>
                 <SideBar />
                 <VDInner theme={activeTheme}>{this.renderEverything()}</VDInner>
               </VDMain>

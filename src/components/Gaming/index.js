@@ -86,7 +86,7 @@ class Gaming extends Component {
           const {activeTheme} = value
           return (
             <>
-              <GamingTopBar theme={activeTheme}>
+              <GamingTopBar data-testid="banner" theme={activeTheme}>
                 <GamingBarImg theme={activeTheme}>
                   <SiYoutubegaming size="55px" color="#ff031c" />
                 </GamingBarImg>
@@ -116,13 +116,13 @@ class Gaming extends Component {
                   ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
                   : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
               }
-              alt="error"
+              alt="failure view"
             />
             <ErrorHeading theme={activeTheme}>
               Oops! Something went wrong
             </ErrorHeading>
             <ErrorDesc theme={activeTheme}>
-              We are having trouble to complete your request. Please try again.
+              We are having some trouble
             </ErrorDesc>
             <RetryBtn onClick={this.getGames} type="button">
               Retry
@@ -155,7 +155,7 @@ class Gaming extends Component {
           return (
             <>
               <Header />
-              <GamingMain theme={activeTheme}>
+              <GamingMain data-testid="gaming" theme={activeTheme}>
                 <SideBar />
                 <GamingInner>{this.renderEverything()}</GamingInner>
               </GamingMain>

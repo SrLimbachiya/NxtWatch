@@ -6,6 +6,12 @@ export const VideoItemMain = styled.li`
   flex-grow: 0;
   flex-shrink: 1;
   margin-right: 25px;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0;
+    height: 100%;
+  }
+
   @media (max-width: 1366px) {
     width: 300px;
     height: 200px;
@@ -19,7 +25,7 @@ export const VideoThumb = styled.img`
   width: 100%;
   @media (max-width: 1366px) {
     width: 100%;
-    height: 200px;
+    height: 250px;
   }
 `
 
@@ -35,7 +41,7 @@ export const VideoDetailDiv = styled.div`
 export const VideoDetailTextDiv = styled.div`
   margin-left: 15px;
 `
-export const VideoTitle = styled.h1`
+export const VideoTitle = styled.p`
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 10px;

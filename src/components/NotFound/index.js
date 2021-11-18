@@ -27,7 +27,7 @@ const NotFound = () => (
                       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png'
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png'
                   }
-                  alt="no saved videos"
+                  alt="not found"
                 />
                 <ErrorHeading theme={activeTheme}>Page Not Found</ErrorHeading>
                 <ErrorDesc theme={activeTheme}>

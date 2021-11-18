@@ -27,7 +27,7 @@ export const VideoDetailDiv = styled.div`
 export const VideoDetailTextDiv = styled.div`
   margin-left: 15px;
 `
-export const VideoTitle = styled.h1`
+export const VideoTitle = styled.p`
   font-size: 25px;
   font-weight: 500;
   margin-bottom: 30px;

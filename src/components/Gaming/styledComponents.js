@@ -8,7 +8,7 @@ export const GamingMain = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: ${props =>
-    props.theme === 'DARK' ? '#0f0f0f' : '#eff2f4'};
+    props.theme === 'DARK' ? '#0f0f0f' : '#f9f9f9'};
 `
 
 export const GamingInner = styled.div`
