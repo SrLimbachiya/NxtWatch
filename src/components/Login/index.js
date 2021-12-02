@@ -18,8 +18,8 @@ import {
 
 class Login extends Component {
   state = {
-    username: '',
-    password: '',
+    username: 'rahul',
+    password: 'rahul@2021',
     errorMsg: '',
     showErr: false,
   }
@@ -72,7 +72,7 @@ class Login extends Component {
   }
 
   render() {
-    const {errorMsg, showErr} = this.state
+    const {errorMsg, showErr, username, password} = this.state
     const gotCookie = Cookies.get('jwt_token')
     if (gotCookie !== undefined) {
       return <Redirect to="/" />
@@ -98,6 +98,7 @@ class Login extends Component {
                   placeholder="Username"
                   id="username"
                   type="text"
+                  value={username}
                 />
 
                 <InputLabel htmlFor="password">PASSWORD</InputLabel>
@@ -106,6 +107,7 @@ class Login extends Component {
                   placeholder="Password"
                   id="password"
                   type="password"
+                  value={password}
                 />
 
                 <CheckboxDiv>
